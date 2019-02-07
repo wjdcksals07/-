@@ -14,26 +14,30 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith("m도움말"):
-        await client.send_message(message.channel, "마주봇의 명령어는 m(명령어) 이며, 명령어는 m명령어 를 참고하시기 바랍니다.")
+    if message.content.startswith('m명령어'):
+        embed = discord.Embed(title="마주봇 명령어", description="m도움말 : 도움말을 불러옵니다.\nm안녕 : 마주봇이 인사합니다.\n게전서 도움말은 m게전서도움말을 쳐주시기 바랍니다!", color=0x188bb4)
+        embed.set_footer(text="Made by 마주 MAJU_#0098")
+        await client.send_message(message.channel, embed=embed)
 
     if message.content.startswith("m 도움말"):
-        await client.send_message(message.channel, "올바른 사용법 : m도움말")
+        await client.send_message(message.channel, "올바른 사용법 : `m도움말`")
 
     if message.content.startswith("m게전서초대"):
         await client.send_message(message.channel, "https://discord.gg/pcUZFdY")
 
     if message.content.startswith("m신고"):
-        await client.send_message(message.channel, "m게전서초대 를 통해 신고해주시기 바랍니다.")
+        await client.send_message(message.channel, "게전서의 신고채팅방에 신고해주시기 바랍니다.")
 
     if message.content.startswith("m안녕"):
-        await client.send_message(message.channel, "안녕하세요 반갑습니다, 마주봇입니다!")
+        await client.send_message(message.channel, ":wave: 안녕하세요 반갑습니다, 마주봇입니다!\n저는 디스코드 도우미이며, 서버를 소개해주는 도우미입니다!\n잘부탁 드립니닷!!")
 
-    if message.content.startswith("m명령어"):
-        await client.send_message(message.channel, "마주봇 도움말 모음 (게전서 도움말은 m게전서도움말)\nm도움말 : 도움말을 불러옵니다.\nm게전서초대 : 게임 전문 서버의 서버초대링크를 불러옵니다.\nm신고 : 신고 도움말을 불러옵니다.\nm안녕 : 마주봇이 인사합니다.")
+    if message.content.startswith("m도움말"):
+        await client.send_message(message.channel, "마주봇의 접두사는 m이며, 마주봇의 명령어는 m명령어를 참고해주시기 바랍니다!")
 
-    if message.content.startswith("m게전서도움말"):
-        await client.send_message(message.channel, "게전서 도움말 모음 (m게전서초대)\nm게전서소개 : 게전서를 소개합니다.\nm게전서역할 : 게전서의 역할을 소개합니다.\nm게전서관리팀 : 서버를 위해 열심히 봉사해주시는 관리팀 분들을 소개합니다.")
+    if message.content.startswith('m게전서도움말'):
+        embed = discord.Embed(title="게전서 도움말", description="초대는 m게전서초대 를 쳐주시기 바랍니다!\nm게전서소개 : 게전서를 소개합니다.\nm게전서역할 : 게전서의 역할을 소개합니다.\nm게전서관리팀 : 서버를 위해 열심히 봉사해주시는 관리팀 분들을 소개합니다.", color=0x188bb4)
+        embed.set_footer(text="Made by 마주 MAJU_#0098")
+        await client.send_message(message.channel, embed=embed)
 
     if message.content.startswith("m게전서소개"):
         await client.send_message(message.channel, "`게전서`는 `게임 전문 서버`의 줄임말입니다.\n`게임 전문 서버`는 `2018년 5월 18일`에 만들어졌으며, `대표`는 `마주`입니다.\n만든 목적은 `친목`과 `게임활동`을 위해서 개설되었으며, `다양한 게임`을 즐기고 있습니다.\n서버에서 `필요한 인재`도 구하고 `게임할 사람`도 구할 수 있으니 좋은 서버겠죠?  서버를 들어오고 싶으신 분들은 `m게전서초대`를 입력해주세요!")
