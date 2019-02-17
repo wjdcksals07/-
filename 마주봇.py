@@ -46,39 +46,7 @@ async def on_message(message):
         await client.send_message(message.channel, "`게임 전문 서버`의 역할소개입니다.\n`Gamer` : 기본 지급 되는 역할. 일반유저이다.\n`Staff` : 서버의 스태프. 서버를 관리한다. (스태프는 면접을 보고 합격하면 승급된다.)\n`Manager` : 스태프의 팀장으로써 나중엔 어드민으로 승급한다. (스태프중 가장 활동이 많은 사람이 매니저가 된다.)\n`Admin` : 서버의 어드민으로써 서버의 모든것을 관리한다.\n`Server Owner` : 서버의 주인으로써 서버의 모든것을 관리한다.\n`죄인` : 법 채팅방에 써있는바와 같이 경고를 많이 받으면 지급되는 역할이다.\n`관리팀` : 모든 관리팀에게 지급되는 역할이다.\n`Youtuber` : 유튜버에게 지급되는 역할이다.\n`Twitch Streammer` : 트위치 스트리머에게 지급되는 역할이다.\n`Bot` : 모든 봇에게 지급되는 역할이다.\n역할 설명 끝!")
 
     if message.content.startswith("m게전서관리팀"):
-        await client.send_message(message.channel, "`게임 전문 서버`의 `관리팀 소개`입니다.\n`마주` : 서버의 주인이자 서버의 모든것을 관리하는 서버오너이다.\n`진우` : 서버의 어드민이자 서버를 열심히 관리하고 컴퓨터를 잘 다루는 관리팀이다.\n`도현` :   서버의 매니저이자 유튜버인 관리팀이다.\n`즐겜러` : 서버의 매니저이자 게임을 좋아하는 관리팀이다.\n`미도` : 서버의 스태프이자 열심히 관리하는 관리팀이다.\n`플비` : 서버의 스태프이자 컴퓨터를 잘 다루는 관리팀이다.\n`주릭` : 서버의 스태프이자 열심히 관리하는 관리팀이다.\n`매생이` : 서버의 스태프이자 열심히 관리하는 관리팀이다.")
-        
-    if message.content in ('ㅅㅂ'):
-        member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅅㅂ을 사용하셨습니다.)
- 
-    if message.content in ('ㅂㅅ'):
-        member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅂㅅ을 사용하셨습니다.)
-                                  
-    if message.content in ('ㅄ'):
-        member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅄ을 사용하셨습니다.)
-                                  
-    if message.content in ('새끼'):
-        member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 새끼를 사용하셨습니다.)     
-                                  
-    if message.content in ('시발'):
-        member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 시발을 사용하셨습니다.)
-                                  
-    if message.content in ('씨발'):
-        member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 씨발을 사용하셨습니다.)
-                                  
-    if message.content in ('병신'):
-        member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 병신을 사용하셨습니다.)
-                                  
-    if message.content in ('개새끼'):
-        member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 개새끼를 사용하셨습니다.)                             
+        await client.send_message(message.channel, "`게임 전문 서버`의 `관리팀 소개`입니다.\n`마주` : 서버의 주인이자 서버의 모든것을 관리하는 서버오너이다.\n`진우` : 서버의 어드민이자 서버를 열심히 관리하고 컴퓨터를 잘 다루는 관리팀이다.\n`도현` :   서버의 매니저이자 유튜버인 관리팀이다.\n`즐겜러` : 서버의 매니저이자 게임을 좋아하는 관리팀이다.\n`미도` : 서버의 스태프이자 열심히 관리하는 관리팀이다.\n`플비` : 서버의 스태프이자 컴퓨터를 잘 다루는 관리팀이다.\n`주릭` : 서버의 스태프이자 열심히 관리하는 관리팀이다.\n`매생이` : 서버의 스태프이자 열심히 관리하는 관리팀이다.")                   
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
