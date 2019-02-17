@@ -54,15 +54,15 @@ async def on_message(message):
                                   
     if message.content in ('ㅂㅅ'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅂㅅ을 사용하셨습니다.)    
+        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅂㅅ을 사용하셨습니다.)
                                   
     if message.content in ('ㅄ'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅄ을 사용하셨습니다.) 
+        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅄ을 사용하셨습니다.)
                                   
     if message.content in ('새끼'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 새끼를 사용하셨습니다.)        
+        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 새끼를 사용하셨습니다.)     
                                   
     if message.content in ('시발'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
@@ -70,15 +70,15 @@ async def on_message(message):
                                   
     if message.content in ('씨발'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 씨발을 사용하셨습니다.)    
+        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 씨발을 사용하셨습니다.)
                                   
     if message.content in ('병신'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 병신을 사용하셨습니다.) 
+        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 병신을 사용하셨습니다.)
                                   
     if message.content in ('개새끼'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
-        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 개새끼를 사용하셨습니다.)                                   
+        await client.send_message(member,'<@!'+message.author.id+'>'+'님이 개새끼를 사용하셨습니다.)                             
 
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
