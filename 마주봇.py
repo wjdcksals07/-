@@ -51,7 +51,7 @@ async def on_message(message):
     if message.content in ('ㅅㅂ'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
         await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅅㅂ을 사용하셨습니다.)
-                                  
+ 
     if message.content in ('ㅂㅅ'):
         member = discord.utils.get(client.get_all_members(),id=348435464144945164)
         await client.send_message(member,'<@!'+message.author.id+'>'+'님이 ㅂㅅ을 사용하셨습니다.)
