@@ -48,9 +48,5 @@ async def on_message(message):
     if message.content.startswith("m게전서관리팀"):
         await client.send_message(message.channel, "`게임 전문 서버`의 `관리팀 소개`입니다.\n`마주` : 서버의 주인이자 서버의 모든것을 관리하는 서버오너이다.\n`진우` : 서버의 어드민이자 서버를 열심히 관리하고 컴퓨터를 잘 다루는 관리팀이다.\n`도현` :   서버의 매니저이자 유튜버인 관리팀이다.\n`즐겜러` : 서버의 매니저이자 게임을 좋아하는 관리팀이다.\n`미도` : 서버의 스태프이자 열심히 관리하는 관리팀이다.\n`플비` : 서버의 스태프이자 컴퓨터를 잘 다루는 관리팀이다.\n`주릭` : 서버의 스태프이자 열심히 관리하는 관리팀이다.\n`매생이` : 서버의 스태프이자 열심히 관리하는 관리팀이다.")
         
-    if message.content in ('m테스트'):
-        channel = discord.Object(id=547771605627961364)
-        await client.send_message(channel, '테스트')   
-
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
