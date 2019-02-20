@@ -23,7 +23,7 @@ async def on_message(message):
         await client.send_message(message.channel, "올바른 사용법 : `m도움말`")
 
     if message.content.startswith("m게전서초대"):
-        await client.send_message(message.channel, "https://discord.gg/pcUZFdY")
+        await client.send_message(message.channel, "https://discord.gg/87g45vX")
 
     if message.content.startswith("m신고"):
         await client.send_message(message.channel, "게전서의 신고채팅방에 신고해주시기 바랍니다.")
