@@ -50,7 +50,23 @@ async def on_message(message):
         
     if message.content in ('lol'):
         channel = discord.Object(id=550661098823483394)
-        await client.send_message(channel, '테스트')    
+        await client.send_message(channel, '테스트')
+        
+    if message.content in ('m신고'):
+        channel = discord.Object(id=550661098823483394)
+        await client.send_message(channel, '삐빅! 새로운 신고가 접수되었습니다.')    
+        
+    if message.content in ('m건의'):
+        channel = discord.Object(id=550661098823483394)
+        await client.send_message(channel, '삐빅! 새로운 건의가 접수되었습니다.')
+        
+    if message.content in ('m신청'):
+        channel = discord.Object(id=550661098823483394)
+        await client.send_message(channel, '삐빅! 새로운 신청이 접수되었습니다.')
+       
+    if message.content in ('m호출'):
+        channel = discord.Object(id=550661098823483394)
+        await client.send_message(channel, '삐빅! 호출입니다.')    
         
 access_token = os.environ["BOT_TOKEN"]
 client.run(access_token)
