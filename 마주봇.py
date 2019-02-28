@@ -25,9 +25,6 @@ async def on_message(message):
     if message.content.startswith("m게전서초대"):
         await client.send_message(message.channel, "https://discord.gg/87g45vX")
 
-    if message.content.startswith("m신고"):
-        await client.send_message(message.channel, "게전서의 신고채팅방에 신고해주시기 바랍니다.")
-
     if message.content.startswith("m안녕"):
         await client.send_message(message.channel, ":wave: 안녕하세요 반갑습니다, 마주봇입니다!\n저는 디스코드 도우미이며, 서버를 소개해주는 도우미입니다!\n잘부탁 드립니닷!!")
 
