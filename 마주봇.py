@@ -2,12 +2,14 @@ import discord
 
 import os
 
+import openpyxl
+
 client = discord.Client()
 
 
 @client.event
 async def on_ready():
-    print("로그인")
+    print("마주봇이 정상적으로 실행되었습니다.")
 
     print(client.user.name)
 
@@ -15,37 +17,63 @@ async def on_ready():
 
     print("------------------")
 
-    await client.change_presence(game=discord.Game(name='$help', type=2))
+    game = discord.Game("도움말 $help")
+    await client.change_presence(status=discord.Status.online, activity=game)
 
 
 @client.event
 async def on_message(message):
     if message.content.startswith('$help'):
         embed = discord.Embed(title="마주봇 도움말",
-                              description="$help - 마주봇의 도움말을 불러옵니다.\n$트위치 - 마주의 트위치 채널을 불러옵니다.\n$유튜브 - 마주의 유튜브 채널을 불러옵니다.\n$마주 - 마주의 소개를 불러옵니다.\n$팀 퐁당나리 / $팀퐁당나리 - 마주가 속해있는 팀 퐁당나리의 정보를 불러옵니다.\n$신고 (내용) - 신고 내용이 마주에게 전달됩니다.\n$건의 (내용) - 건의 내용이 마주에게 전달됩니다.",
+                              description="마주봇은 관리자 전용으로 만들어졌음을 알려드립니다.\n$notice (채널아이디) (할말) - 특정 채널에 메시지를 보냅니다.\n$dm (유저아이디) (할말) - 유저에게 메시지를 보냅니다.\n$mute (유저아이디) - 유저를 뮤트 시킵니다.\n$unmute (유저아이디) - 유저의 뮤트를 해제합니다.\n$경고 (유저아이디) - 유저에게 경고를 지급합니다.",
                               color=0x188bb4)
 
-        embed.set_footer(text="Made by 마주 MAJU_#0098")
+        embed.set_footer(text="Made by 마주 MaJu_Game#0098")
 
-        await client.send_message(message.channel, embed=embed)
+        await message.channel.send(embed=embed)
 
-    if message.content.startswith('$신고'):
-        text = ""
+    if message.content.startswith('$notice'):
+        channel = message.content[8:26]
+        msg = message.content[27:]
+        await client.get_channel(int(channel)).send(msg)
 
-        learn = message.content.split(" ")
+    if message.content.startswith('$dm'):
+        author = message.guild.get_member(int(message.content[4:22]))
+        msg = message.content[23:]
+        await author.send(msg)
 
-        vrsize = len(learn)
+    if message.content.startswith('$mute'):
+        author = message.guild.get_member(int(message.content[6:24]))
+        role = discord.utils.get(message.guild.roles, name="뮤트")
+        await author.add_roles(role)
 
-        vrsize = int(vrsize)
+    if message.content.startswith('$unmute'):
+        author = message.guild.get_member(int(message.content[8:26]))
+        role = discord.utils.get(message.guild.roles, name="뮤트")
+        await author.remove_roles(role)
 
-        for i in range(1, vrsize):
-
-            text = text + learn[i]
-
-        learn = message.content.split(" ")
-        msg = '{0.author.mention}'.format(message) + '님이 신고하셨습니다.' + '\n 신고내용' + '' + text + ''
-        user = await client.get_user_info(348435464144945164)
-        await client.send_message(user, msg)
+    if message.content.startswith("$경고"):
+        author = message.guild.get_member(int(message.content[4:22]))
+        file = openpyxl.load_workbook("경고.xlsx")
+        sheet = file.active
+        i = 1
+        while True:
+            if sheet["A" + str(i)].value == str(author.id):
+                sheet["B" + str(i)].value = int(sheet["B" + str(i)].value) + 1
+                file.save("경고.xlsx")
+                if sheet["B" + str(i)].value == 2:
+                    await message.guild.ban(author)
+                    await message.channel.send("경고 2회 누적입니다. 서버에서 추방됩니다.")
+                else:
+                    await message.channel.send("경고를 1회 받았습니다.")
+                break
+            if sheet["A" + str(i)].value == None:
+                sheet["A" + str(i)].value = str(author.id)
+                sheet["B" + str(i)].value = 1
+                file.save("경고.xlsx")
+                await message.channel.send("경고를 1회 받았습니다.")
+                break
+            i += 1
 
 
 access_token = os.environ["BOT_TOKEN"]
